@@ -1,5 +1,4 @@
-#FROM ubuntu:20.04
-FROM nvidia/cuda:11.4.1-base-ubuntu20.04
+FROM nvidia/cuda:11.1.1-base
 
 LABEL Gershon <gershon@medooza.io>
 
@@ -15,6 +14,7 @@ ENV ETH_ADDRESS=0
 ENV SERVER=us1.ethermine.org
 ENV WORKER_NAME=worker0
 ENV INTENSITY=auto
+ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
